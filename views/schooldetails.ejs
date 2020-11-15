@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> NGO Page </title>
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel = "stylesheet"  href = "/stylesheets/show.css" type = "text/css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>  
+    <script src="https://kit.fontawesome.com/34fe72151e.js" crossorigin="anonymous"></script>
+ 
+</head>
+
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light naving fixed-top">
+        <a class="navbar-brand" href="/"><img src="../images/jaiviks.PNG" class="img-responsive logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/"><b>Home</b></a>
+            </li>
+			   <% if(!currentUser){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/registerschool"><b>Register</b></a>
+            </li>
+			  <li class="nav-item">
+              <a class="nav-link" href="/loginschool"><b>Login</b></a>
+            </li>
+			   <% } else { %>
+			   <li class="nav-item">
+				   <a class="nav-link" href="#">Signed In As <%= currentUser.username %></a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout"><b>logout</b></a>
+            </li>
+			  <% } %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+     
+     
+		  
+ <div class="container" style = "margin-top: 2rem;">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Find Your Crops</h1>
+             <p>Help Farmers</p>
+             <p>
+                <a class="btn btn-primary btn-large add_btn" href="/schooldetails/new">Add Crop That You Need</a>
+             </p>
+          
+                <form action="/schooldetails" method="GET" class="form-inline" id="campground-search">
+                  <div class="form-group">
+                    <input type="text" name="search" placeholder="Crop search..." class="form-control">
+                    <input type="submit" value="Search" class="btn btn-success" margin-left="5px">
+                
+                  </div>
+                </form>
+      
+         </div>
+         </header>
+       
+    
+ 
+   
+        <% schools.forEach(function(schools){ %>
+    <div class="card mb-3">
+      <div class="row no-gutters" >
+        <div class="col-md-4 thumbnail" >
+          <img src="<%= schools.image %>"  >
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4><%= schools.name %></h4>
+           <p><%= schools.briefInfo %></p>
+            
+            <a href="/schooldetails/<%=schools._id%>"><button type="button" class="btn btn-outline-success"> MORE
+                INFO</button></a>
+          </div>
+        </div>
+      </div>
+  
+            </div>
+        <% }); %>
+       
+        
+    </div> 
+
+  </body>
+
+
+
+
+
+  </html>

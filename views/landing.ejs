@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jaivik</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+	
+	<link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+
+
+<body>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+	<div class="container-fluid">
+		<a class="navbar-brand logo" href="#"><img src="../images/jaiviks.png" class="img-responsive logo"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link active" href="#">Home</a>
+				</li>
+                <% if(!currentUser){ %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/registerschool"><b>Register</b></a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/loginschool"><b>Login</b></a>
+                    </li>
+                       <% } else { %>
+                       <li class="nav-item">
+                           <a class="nav-link" href="#">Signed In As <%= currentUser.username %></a></li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/logout"><b>logout</b></a>
+                    </li>
+                      <% } %>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+
+
+<!--- Image Slider -->
+
+<div id="slides" class="carousel slide" data-ride="carousel">
+	<ul class="carousel-indicators">
+		<li data-target="#slides" data-slide-to="0" class="active"></li>
+		<li data-target="#slides" data-slide-to="1"></li>
+		<li data-target="#slides" data-slide-to="2"></li>		
+	</ul>
+
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="https://images.unsplash.com/photo-1558289282-647de9fdf608?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+			<div class="carousel-caption">
+				<h1 class="display-2">Jaivik</h1>
+				<h3>Grow More.</h3>
+				<a href="/schooldetails"><button type="button" class="btn btn-success btn-lg">View Crops</button></a>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="https://images.unsplash.com/photo-1592079927431-3f8ced0dacc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+			<div class="carousel-caption">
+				<h1 class="display-2">Latest News</h1>
+				<h3>Know more</h3>
+				<a href="/schooldetails"><button type="button" class="btn btn-success btn-lg">View Crops</button></a>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+			<div class="carousel-caption">
+				<h1 class="display-2">Financial Aid</h1>
+				<h3>From leading firms</h3>
+				<a href="/schooldetails"><button type="button" class="btn btn-success btn-lg">View Crops</button></a>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+<!--- About Us -->
+
+<div class="aboutus-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="aboutus">
+                        <h2 class="aboutus-title">About Us</h2>
+                        <p class="aboutus-text">The project ‘Jaivik-जैविक’ is a web-based application. This software provides facility to the local small
+                            scale industries for reporting their demands of crops (organic) and to the small and medium level
+                            farmers to provide those crops, based on a mutually binding contract. This will remove the fear of
+                            crop not being sold. We can implement this by the help of Gram Panchayat. Here they will also get
+                            latest news related to farming and government policies.</p>
+                        <p class="aboutus-text"> This project will help the local
+                            small scale industries to prosper and will help in promoting “Vocal for Local”. Through this platform
+                            the farmers and small companies can reap more benefit, by the removal of middlemen.</p>
+                        <a class="aboutus-more" href="#">read more</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 about1">
+                    <div class="aboutus-banner">
+                        <img src="https://image.shutterstock.com/image-photo/full-length-portrait-mature-farmer-600w-353887157.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-12 about2">
+                    <div class="feature">
+                        <div class="feature-box">
+                            <div class="clearfix">
+                                
+                                    <span class="glyphicon glyphicon-cog icon"></span>
+                               
+                                <div class="feature-content">
+                                    <h4>Work with heart</h4>
+                                    <p>We at Jaivik work for a good cause, a mission to improve the condition of farmers of india and to change the the face of not only small scale industries, but to also support well established one. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="clearfix">
+                                
+                                    <span class="glyphicon glyphicon-cog icon"></span>
+                                
+                                <div class="feature-content">
+                                    <h4>Reliable services</h4>
+                                    <p >You can trust us with the services we provide, we have never let any of our users down and we never will.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="clearfix">
+                                
+                                    <span class="glyphicon glyphicon-cog icon"></span>
+                                
+                                <div class="feature-content">
+                                    <h4>Great support</h4>
+                                    <p>Whether you are a farmer or a businessmen, all you need to do is some clicks, and sit back and relax, we will take care of your needs after this.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<hr class="my-4">
+
+
+
+
+  
+  <section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="mb-3 newshead">Latest News</h3>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="btn btn mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="col-12">
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://img.etimg.com/thumb/msid-79022933,width-300,imgsize-810513,,resizemode-4,quality-100/urea-bccl.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title newshead" >Fertilizer sales increase</h4>
+                                        <p class="card-text">Indian Farmers Fertiliser Cooperative Ltd (Iffco) spokesperson said, the estimated
+                                            demand for urea is 18.3 million tonne, which is 80,000 tonne higher than 2019.</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://img.etimg.com/thumb/msid-78991499,width-300,imgsize-669759,,resizemode-4,quality-100/sugar.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title newshead">Largest sugar consumers</h4>
+                                        <p class="card-text">India, world’s largest sugar consumer, wants
+                                            its people to eat more.Mills in India are eyeing increased consumption as a way to cut the nation’s chronic
+                                            oversupply. </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://img.etimg.com/thumb/msid-78590789,width-300,imgsize-767473,,resizemode-4,quality-100/agriculture-.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title newshead">Agricultural exports jump</h4>
+                                        <p class="card-text">India’s agricultural exports jump in Covid
+                                            times.Export of essential agricultural commodities in the first six months of the current
+                                            fiscal rose 43.4% .</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://img.etimg.com/thumb/msid-78936990,width-300,imgsize-665497,,resizemode-4,quality-100/onions-bccl.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title newshead">Onion seed exports</h4>
+                                        <p class="card-text">India bans onion seed exports with immediate
+                                            effect.The govt banned exports of onion seeds with immediate effect, which means an exporter was required to
+                                            obtain a licence.</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://img.etimg.com/thumb/msid-79094866,width-300,imgsize-956224,,resizemode-4,quality-100/13.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title newshead">Agriculture reforms</h4>
+                                        <p class="card-text">Agriculture reforms will transform rural
+                                            economy. Chand clarified that the modification specifies transparent
+                                            criteria in terms of price trigger for imposing ECA rather than leaving it.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://img.etimg.com/thumb/msid-79060166,width-300,imgsize-828253,,resizemode-4,quality-100/agri4bccl.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title newshead">Hybrid rice</h4>
+                                        <p class="card-text">Corteva slowly making inroads
+                                            into Bihar, Jharkhand; trains 90K woman farmers.Now, Women are trained to grow hybrid seeds even by using the Direct
+                                            Seed Rice (DSR) technique.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+<div class="container-fluid padding1 connect">
+	<div class="row text-center padding1">
+		<div class="col-12">
+			<h2>Those who benifited from us
+            </h2>
+		</div></div></div>
+<div class="container mt-5 d-flex justify-content-center ">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="maincard p-3">
+                <div class="thecard">
+                    <div class="thefront text-center py-4"> <img src="https://www.globalpeacechain.org/wp-content/uploads/2019/02/saidul-hassan-ch.jpg" class="rounded-circle mt-5" width="100">
+                        <h3 class="mt-2 mb-0">Vikash Singh</h3> <small class="user_name">Owner of Fruityfy</small>
+                    </div>
+                    <div class="theback py-3 px-3">
+                        <div class="quote mt-3">
+                            <h4><i class="fa fa-quote-left"></i></h4>
+                            <p class="about text-justify">I started as a very small juice and beverages shop owner. I had to waste lot of time and money
+                                on searching for fresh . But call it my good luck or I think god was just watching over us, I came across
+                                jaivik, after this my buisness has seen an increase in profit . This is a wonderful initiative, now I can
+                                just request what I need and it does all the hard work for me and finds me nearby farmers from
+                                where I can get what I need at a reasonable price and saves me a lot of money and time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="maincard p-3">
+                <div class="thecard">
+                    <div class="thefront text-center py-4"> <img src="https://i.imgur.com/tmdHXOY.jpg" class="rounded-circle mt-5" width="100">
+                        <h3 class="mt-2 mb-0">Nitish Bhardawaj</h3> <small class="user_name">Founder of kaveri Restaurant</small>
+                    </div>
+                    <div class="theback py-3 px-3">
+                        <div class="quote mt-3">
+                            <h4><i class="fa fa-quote-left"></i></h4>
+                            <p class="about text-justify">Before starting this business I was really nervous. I had so many confusions in my mind about
+                                how to get good qualtiy vegetables at low cost for my restaurants. Thanks to those who took initiative
+                                to connect small businessmen like us directly to the farmers. Now i never lose confidence in my plans
+                                because I now know that Jaivik will always help me in finding good Vegetables at reasonable price.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="maincard p-3">
+                <div class="thecard">
+                    <div class="thefront text-center py-4"> <img src="https://th.bing.com/th/id/OIP.P44JTOIyjX_rXlLSj2MDEwHaHE?pid=Api&rs=1" class="rounded-circle mt-5" width="100">
+                        <h3 class="mt-2 mb-0">Himashu Sharma</h3> <small class="user_name">Farmer</small>
+                    </div>
+                    <div class="theback py-3 px-3">
+                        <div class="quote mt-3">
+                            <h4><i class="fa fa-quote-left"></i></h4>
+                            <p class="about text-justify">We work very hard for one sac of any crop, after so much effort if we don’t get what we
+                                deserve then it really shatters our hope to survive. i saw some of my farmer brothers using this jaivik
+                                website. Now that I know about Jaivik, its much easier to sell my crops at the price that crop is worth
+                                of. Now we don’t have to deal with the bichaulias (Middle men). our finantial conditions has also
+                                improved. Thanks to jaivik.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- 
+
+<- Three Column Section - Membership -->
+<!-- 
+    <div class="site-section" id="membership-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 text-center">
+            <h2 class="font-weight-bold text-black">IEEE Membership</h2>
+            <p>Join us and be a part of IEEE</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-lg-0 pricing">
+            <div class="border text-center rounded">
+              <h3>Benefits</h3>
+              <br>
+              <ol class=" ol-check text-left success mb-5">
+                <li>New resources, opportunities and many discounts</li>
+                <li>Advance your career in the right direction</li>
+                <li>Chance to participate in various IEEE conferences across the globe</li>
+              </ol>
+              <p><a href="#" class="btn btn-lg btn-success btn-block">Know More</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-lg-0 pricing">
+            <div class="border text-center rounded">
+              <h3>Join a Society</h3>
+              <br>
+              <ol class=" ol-check text-left success mb-5">
+                <li>Stay updated with latest trends in technology</li>
+                <li>Network with colleagues locally and abroad</li>
+                <li>Collaborate on research and projects with leading experts and many such opportunities</li>
+              </ol>
+              <p><a href="#" class="btn btn-lg btn-success btn-block">More Info</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-lg-0 pricing">
+            <div class="border text-center rounded">
+              <h3>Join IEEE</h3>
+              <br>
+              <ol class=" ol-check text-left success mb-5">
+                <li>Be a part of the world’s largest technology community</li>
+                <li>Join professional and experts to shape your career</li>
+                <li>Acquire new skills, and advance your professional development</li>
+              </ol>
+              <p><a href="#" class="btn btn-lg btn-success btn-block">Register</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ -->
+
+
+
+
+
+<!--- Connect -->
+
+<div class="container-fluid padding1 connect">
+	<div class="row text-center padding1">
+		<div class="col-12">
+			<h2>Connect</h2>
+		</div>
+		<div class="col-12 social padding1">
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-google-plus-g"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-youtube"></i></a>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!--- Footer -->
+<footer class="foot">
+	<div class="container-fluid padding2">
+		<div class="row text-center">
+			<div class="col-md-4">
+				<h3>JAIVIK</h3>
+				<hr class="light">
+				<h3>Contact Us</h3>
+				<p>Phone: 555-555-5555</p>
+				<p>Email: jivika@gmail.com</p>
+				<p>Hostel, JSS Science and Technology University , Mysuru- 570006</p>
+			</div>
+
+			<div class="col-md-4">
+				<hr class="light">
+				<h3>Navigation</h3>
+				<hr class="light">
+				<p><a href="#">About Us</a></p>
+				<p><a href="#">News</a></p>
+				<p><a href="#">Privacy Policy</a></p>
+				<p><a href="#">Plagiarism Free</a></p>
+				<p><a href="#">Jivika Head</a></p>
+			</div>
+
+			<div class="col-md-4">
+				<hr class="light">
+				<h3>Developed By</h3>
+				<hr class="light">
+				<h5>Abhijeet Bharti</h5>
+                <h5>Suyash Patil</h5>
+                <h5>Mukul</h5>
+                <h5>Shivraj</h5>
+			</div>
+
+			<div class="col-12">
+				<hr class="light-100">
+				<h5>Copyright &copy; 2020 Jivika</h5>
+			</div>
+
+		</div>
+	</div>
+</footer>
+
+
+
+
+<!-- Scroll to top - Button -->
+
+<button id="btnScrollToTop">
+	<i class="material-icons">arrow_upward</i>
+</button>
+
+
+
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA==" crossorigin="anonymous"></script>
+<script >
+// 	var waypoint = new Waypoint({
+//   element: document.getElementById('px-offset-waypoint'),
+//   handler: function(direction) {
+//     notify('I am 20px from the top of the window')
+//   },
+//   offset: 20 
+// })
+
+
+	$(document).ready(function(){
+		$('.about1').waypoint(function(direction){
+			$('.about1').addClass('animated zommIn')
+
+		},{
+			offset:"400px";
+		})
+	});
+</script>
+
+
+</body>
+</html>
+
+
+
